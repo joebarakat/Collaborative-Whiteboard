@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collaborative Whiteboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h2>Users Online</h2>
+      <ul id="user-list"></ul>
+      <h2>Tools</h2>
+      <div>
+        <label for="color">Color:</label>
+        <input type="color" id="color" value="#000000">
+      </div> </br>
+      <div>
+        <label for="brush-size">Brush Size:</label>
+        <input type="range" id="brush-size" min="1" max="10" value="2">
+      </div>
+      <div>
+        <button id="brush">Brush</button>
+        <button id="eraser">Eraser</button>
+      </div>
+      <div>
+        <button id="clear" style="background-color: red;">Clear</button>
+      </div>
+      <div>
+        <button id="undo">Undo</button>
+        <button id="redo">Redo</button>
+        <button id="save" style="background-color: green;">Save</button>
+        <select id="loadSelect">
+        <option value="" disabled selected>Select a canvas to load</option>
+  </select>
+  <button id="load" style="background-color: green;">Load</button>
+      </div>
+      
+      <div>
+        <div id="user-list"></div></br>
+        <div id="drawing-status"></div>
+        <button id="disconnect" onclick="disconnect()" style="background-color: red;">Disconnect</button>
+      </div>
+      <div class="message-section">
+        <h2>Chat</h2>
+        <div id="messages"></div>
+        <input type="text" id="message-input" placeholder="Type a message">
+        <button id="send-message">Send</button>
+      </div>
+    </div>
+    <div class="main">
+      <canvas id="canvas" width="800" height="600"></canvas>
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
